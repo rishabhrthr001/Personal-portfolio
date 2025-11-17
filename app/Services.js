@@ -101,10 +101,6 @@ export default function Services() {
                   </li>
                 ))}
               </ul>
-
-              <button className="px-6 py-2.5 border border-[#444] rounded-lg text-sm text-gray-200 hover:bg-[#1a1a1d] hover:border-[#4FD1C5] transition">
-                Learn More
-              </button>
             </motion.div>
           ))}
         </div>

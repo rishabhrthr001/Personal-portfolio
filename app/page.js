@@ -4,7 +4,7 @@ import Services from "./Services";
 import About from "./About";
 import Portfolio from "./Portfolio";
 import Contact from "./Contact";
-import Pricing from "./Pricing";
+import Footer from "./Footer";
 
 export default function Home() {
   return (
@@ -12,10 +12,10 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Services />
-      <Pricing />
       <Portfolio />
       <About />
       <Contact />
+      <Footer />
     </div>
   );
 }

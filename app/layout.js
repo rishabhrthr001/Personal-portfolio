@@ -15,7 +15,7 @@ export const metadata = {
   title: "Rishabh Labs",
   description: "Solution to all your Tech Problems",
   icons: {
-    icon: "/minilogo.png",
+    icon: "/Logo.png",
   },
 };
 

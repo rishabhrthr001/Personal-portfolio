@@ -25,22 +25,26 @@ export default function Navbar() {
         }`}
     >
       <nav className="max-w-6xl mx-auto flex items-center justify-between">
-        {/* LOGO (Desktop + Mobile) */}
+        {/* LOGO + TEXT (Desktop) */}
         <div className="flex items-center gap-3">
           <Image
-            src="/logo.png"
+            src="/Logo.png"
             alt="Rishabh Labs Logo"
-            width={42}
-            height={42}
+            width={40}
+            height={40}
             className="hidden md:block"
           />
 
-          {/* Smaller logo for mobile */}
+          <span className="hidden md:block text-xl font-bold tracking-wide text-white drop-shadow-[0_0_6px_rgba(79,209,197,0.4)]">
+            Rishabh Labs
+          </span>
+
+          {/* MOBILE — Only the logo */}
           <Image
-            src="/logo.png"
+            src="/Logo.png"
             alt="Rishabh Labs Logo"
-            width={34}
-            height={34}
+            width={30}
+            height={30}
             className="md:hidden"
           />
         </div>
@@ -52,36 +56,13 @@ export default function Navbar() {
           transition={{ delay: 0.12 }}
           className="hidden md:flex gap-8 text-sm font-medium tracking-wide text-slate-200"
         >
-          <li>
-            <a href="#home" className="hover:text-[#4FD1C5]">
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="#services" className="hover:text-[#4FD1C5]">
-              Services
-            </a>
-          </li>
-          <li>
-            <a href="#pricing" className="hover:text-[#4FD1C5]">
-              Pricing
-            </a>
-          </li>
-          <li>
-            <a href="#portfolio" className="hover:text-[#4FD1C5]">
-              Portfolio
-            </a>
-          </li>
-          <li>
-            <a href="#about" className="hover:text-[#4FD1C5]">
-              About
-            </a>
-          </li>
-          <li>
-            <a href="#contact" className="hover:text-[#4FD1C5]">
-              Contact
-            </a>
-          </li>
+          {["home", "services", "portfolio", "about", "contact"].map((item) => (
+            <li key={item}>
+              <a href={`#${item}`} className="hover:text-[#4FD1C5] transition">
+                {item.charAt(0).toUpperCase() + item.slice(1)}
+              </a>
+            </li>
+          ))}
         </motion.ul>
 
         {/* Desktop CTA */}
@@ -120,18 +101,16 @@ export default function Navbar() {
           className="md:hidden bg-[#0f0f11]/95 backdrop-blur-xl border-b border-white/10 
                      px-6 py-6 mt-4 space-y-6 text-slate-200 text-lg"
         >
-          {["home", "services", "pricing", "portfolio", "about", "contact"].map(
-            (item) => (
-              <a
-                key={item}
-                onClick={() => setMenuOpen(false)}
-                href={`#${item}`}
-                className="block hover:text-[#4FD1C5] transition"
-              >
-                {item.charAt(0).toUpperCase() + item.slice(1)}
-              </a>
-            )
-          )}
+          {["home", "services", "portfolio", "about", "contact"].map((item) => (
+            <a
+              key={item}
+              onClick={() => setMenuOpen(false)}
+              href={`#${item}`}
+              className="block hover:text-[#4FD1C5] transition"
+            >
+              {item.charAt(0).toUpperCase() + item.slice(1)}
+            </a>
+          ))}
         </motion.div>
       )}
     </header>

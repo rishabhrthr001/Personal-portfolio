@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { FaGithub, FaLinkedin, FaReact, FaNodeJs } from "react-icons/fa";
 import {
   SiNextdotjs,
@@ -113,9 +114,11 @@ export default function About() {
             transition={{ type: "spring", stiffness: 200 }}
             className="w-64 h-64 rounded-full overflow-hidden border-2 border-[#4FD1C5] shadow-lg shadow-black/40"
           >
-            <img
+            <Image
               src="/golu.jpg"
               alt="Rishabh Rathore"
+              width={256}
+              height={256}
               className="w-full h-full object-cover"
             />
           </motion.div>
