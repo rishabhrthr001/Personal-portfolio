@@ -28,7 +28,7 @@ export default function Navbar() {
         {/* LOGO + TEXT (Desktop) */}
         <div className="flex items-center gap-3">
           <Image
-            src="/Logo.png"
+            src="/Logo1.png"
             alt="Rishabh Labs Logo"
             width={40}
             height={40}
