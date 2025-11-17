@@ -43,7 +43,7 @@ export default function Navbar() {
 
             {/* MOBILE — Only the logo */}
             <Image
-              src="/Logo.png"
+              src="/Logo1.png"
               alt="Rishabh Labs Logo"
               width={30}
               height={30}
