@@ -26,27 +26,30 @@ export default function Navbar() {
     >
       <nav className="max-w-6xl mx-auto flex items-center justify-between">
         {/* LOGO + TEXT (Desktop) */}
+
         <div className="flex items-center gap-3">
-          <Image
-            src="/Logo1.png"
-            alt="Rishabh Labs Logo"
-            width={40}
-            height={40}
-            className="hidden md:block"
-          />
+          <a href="#home" className="flex items-center gap-3 scroll-smooth">
+            <Image
+              src="/Logo1.png"
+              alt="Rishabh Labs Logo"
+              width={40}
+              height={40}
+              className="hidden md:block"
+            />
 
-          <span className="hidden md:block text-xl font-bold tracking-wide text-white drop-shadow-[0_0_6px_rgba(79,209,197,0.4)]">
-            Rishabh Labs
-          </span>
+            <span className="hidden md:block text-xl font-bold tracking-wide text-white drop-shadow-[0_0_6px_rgba(79,209,197,0.4)]">
+              Rishabh Labs
+            </span>
 
-          {/* MOBILE — Only the logo */}
-          <Image
-            src="/Logo.png"
-            alt="Rishabh Labs Logo"
-            width={30}
-            height={30}
-            className="md:hidden"
-          />
+            {/* MOBILE — Only the logo */}
+            <Image
+              src="/Logo.png"
+              alt="Rishabh Labs Logo"
+              width={30}
+              height={30}
+              className="md:hidden"
+            />
+          </a>
         </div>
 
         {/* Desktop Navigation */}
