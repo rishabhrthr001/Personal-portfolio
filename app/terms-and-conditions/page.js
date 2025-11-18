@@ -76,7 +76,7 @@ export default function TermsConditions() {
               For legal or support questions:
               <br />
               <span className="text-[#4FD1C5] font-semibold">
-                rishabhrthr001@gmail.com
+                rishabh.rthr001@gmail.com
               </span>
             </p>
           </Section>

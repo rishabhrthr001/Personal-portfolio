@@ -78,7 +78,7 @@ export default function PrivacyPolicy() {
               For privacy-related questions, email us at:
               <br />
               <span className="text-[#4FD1C5] font-semibold">
-                rishabhrthr001@gmail.com
+                rishabh.rthr001@gmail.com
               </span>
             </p>
           </Section>
