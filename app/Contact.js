@@ -49,6 +49,13 @@ export default function Contact() {
           setFormData({ name: "", email: "", message: "" });
           setLoading(false);
           launchConfetti();
+          if (typeof window !== "undefined" && window.gtag) {
+            window.gtag("event", "conversion", {
+              send_to: "AW-17742009470/uP_3CIrIzcIbEP6ohoxC",
+              value: 1.0,
+              currency: "INR",
+            });
+          }
         },
         () => {
           setStatus("Something went wrong. Please try again.");
