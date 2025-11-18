@@ -73,7 +73,6 @@ export default function Hero() {
           </a>
         </motion.div>
       </div>
-
       {/* Bottom arcs */}
       <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
         <Arcs />

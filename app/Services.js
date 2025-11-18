@@ -70,8 +70,10 @@ export default function Services() {
           What I Offer
         </h2>
         <p className="text-gray-400 mb-16 text-lg">
-          I build scalable, secure, and visually striking digital solutions that
-          combine solid engineering with clean interface design.
+          I create end-to-end digital products built for real-world use—fast,
+          scalable, secure, and designed with a clean, modern interface. From
+          frontend polish to backend architecture and Web3 logic, everything is
+          engineered to perform and built to last.
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-12">
