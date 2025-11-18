@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -87,6 +88,20 @@ export default function RootLayout({ children }) {
 
         {/* Language hint for Google */}
         <link rel="alternate" hrefLang="en" href="https://devrishabh.com" />
+        {/* Google tag (gtag.js)  */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17742009470"
+        />
+
+        <Script id="google-ads-tag">
+          {`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17742009470');
+  `}
+        </Script>
       </head>
 
       <body
