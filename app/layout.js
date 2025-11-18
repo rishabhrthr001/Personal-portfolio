@@ -46,7 +46,7 @@ export const metadata = {
     siteName: "Rishabh Labs",
     images: [
       {
-        url: "/og-preview.png",
+        url: "/og-preview2.png",
         width: 1200,
         height: 630,
         alt: "Rishabh Labs Portfolio Preview",
@@ -61,7 +61,7 @@ export const metadata = {
     title: "Rishabh Labs – Full-Stack & Web3 Developer",
     description:
       "Modern web apps, mobile apps, smart contracts & backend systems.",
-    images: ["/og-preview.png"],
+    images: ["/og-preview2.png"],
   },
 };
 
