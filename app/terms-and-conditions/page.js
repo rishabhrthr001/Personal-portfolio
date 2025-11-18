@@ -76,7 +76,12 @@ export default function TermsConditions() {
               For legal or support questions:
               <br />
               <span className="text-[#4FD1C5] font-semibold">
-                rishabh.rthr001@gmail.com
+                <a
+                  href="mailto:Rishabh.rthr001@gmail.com"
+                  className="hover:text-[#4FD1C5] transition"
+                >
+                  Rishabh.rthr001@gmail.com
+                </a>
               </span>
             </p>
           </Section>
