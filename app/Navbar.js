@@ -30,7 +30,7 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <a href="#home" className="flex items-center gap-3 scroll-smooth">
             <Image
-              src="/Logo1.png"
+              src="/RishabhLabs.png"
               alt="Rishabh Labs Logo"
               width={40}
               height={40}
@@ -43,7 +43,7 @@ export default function Navbar() {
 
             {/* MOBILE — Only the logo */}
             <Image
-              src="/Logo1.png"
+              src="/RishabhLabs.png"
               alt="Rishabh Labs Logo"
               width={30}
               height={30}

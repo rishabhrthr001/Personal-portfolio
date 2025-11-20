@@ -34,9 +34,9 @@ export const metadata = {
   metadataBase: new URL("https://devrishabh.com"),
 
   icons: {
-    icon: "/Logo1.png",
-    shortcut: "/Logo1.png",
-    apple: "/Logo1.png",
+    icon: "/RishabhLabs.png",
+    shortcut: "/RishabhLabs.png",
+    apple: "/RishabhLabs.png",
   },
 
   openGraph: {
@@ -80,8 +80,8 @@ export default function RootLayout({ children }) {
         <link rel="canonical" href="https://devrishabh.com" />
 
         {/* Favicon fallback */}
-        <link rel="icon" href="/Logo1.png" sizes="any" />
-        <link rel="apple-touch-icon" href="/Logo1.png" />
+        <link rel="icon" href="/RishabhLabs.png" sizes="any" />
+        <link rel="apple-touch-icon" href="/RishabhLabs.png" />
 
         {/* Theme color for browsers */}
         <meta name="theme-color" content="#0f0f11" />
