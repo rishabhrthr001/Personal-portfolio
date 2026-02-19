@@ -1,128 +1,133 @@
 "use client";
 import Image from "next/image";
-import { FaGithub, FaLinkedin, FaReact, FaNodeJs } from "react-icons/fa";
-import {
-  SiNextdotjs,
-  SiMongodb,
-  SiSolidity,
-  SiTailwindcss,
-} from "react-icons/si";
+import { FaGithub, FaLinkedin, FaCode, FaCoffee, FaRocket, FaTerminal } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { FiArrowUpRight, FiCheckCircle } from "react-icons/fi";
 
 export default function About() {
+  const highlights = [
+    { title: "BCA & MCA Graduate", desc: "Solid academic foundation in computer science." },
+    { title: "Full-Stack Mastery", desc: "Expertise across the entire development lifecycle." },
+    { title: "Web3 Specialist", desc: "Architecting secure, decentralized solutions." },
+    { title: "UI/UX Focused", desc: "Designing for the human element." },
+  ];
+
   return (
-    <section
-      id="about"
-      className="relative min-h-screen bg-[#0f0f11] text-white py-20 px-6 flex items-center justify-center overflow-hidden"
-    >
-      {/* ✅ SAME CENTER TEAL GLOW */}
-      <div
-        className="absolute top-40 left-1/2 -translate-x-1/2
-                   w-[700px] h-[700px]
-                   bg-[#4fd1c525]
-                   blur-[160px] rounded-full pointer-events-none"
-      ></div>
+    <section id="about" className="relative py-32 px-6 overflow-hidden bg-transparent">
+      {/* Seamless Transition Glows */}
+      <div className="absolute top-0 left-0 w-full h-[300px] bg-gradient-to-b from-[#7f5af003] to-transparent pointer-events-none" />
+      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-[#4fd1c503] blur-[140px] rounded-full pointer-events-none" />
+      
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          
+          {/* LEFT: IMAGE & STATS */}
+          <div className="lg:col-span-5 relative">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              className="relative aspect-[4/5] rounded-[3rem] overflow-hidden border border-white/10 group"
+            >
+              <Image
+                src="/golu.jpg"
+                alt="Rishabh Rathore"
+                fill
+                className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050507] via-transparent to-transparent opacity-60" />
+              
+              {/* Floating ID Card Overlay */}
+              <div className="absolute bottom-10 left-10 right-10 p-6 rounded-2xl bg-black/40 backdrop-blur-xl border border-white/10">
+                 <p className="text-white font-bold text-xl mb-1">Rishabh Rathore</p>
+                 <p className="text-[#4FD1C5] font-mono text-xs uppercase tracking-widest">Lead Engineer @ Codekea</p>
+              </div>
+            </motion.div>
 
-      <div className="relative z-10 max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        {/* LEFT: About Text */}
-        <div>
-          <h2 className="text-4xl font-extrabold mb-6">About Me</h2>
-
-          <p className="text-gray-300 mb-6 leading-relaxed">
-            I’m{" "}
-            <span className="text-[#4FD1C5] font-semibold">
-              Rishabh Rathore
-            </span>{" "}
-            — or you can call me{" "}
-            <span className="text-[#7F5AF0] font-semibold">Golu</span>. I’m a{" "}
-            <span className="font-semibold text-[#4FD1C5]">
-              Full-Stack & Web3 Developer
-            </span>{" "}
-            who builds fast, clean, and modern digital products.
-          </p>
-
-          <p className="text-gray-400 mb-6 leading-relaxed">
-            I specialize in{" "}
-            <span className="font-semibold text-gray-200">
-              Next.js, MERN, Node.js
-            </span>
-            , and create everything from full-stack apps and dashboards to
-            mobile apps and high-performance APIs.
-          </p>
-
-          <p className="text-gray-400 mb-6 leading-relaxed">
-            On the Web3 side, I develop{" "}
-            <span className="font-semibold text-gray-200">
-              secure smart contracts
-            </span>
-            , build reward systems, ERC-20/721 tokens, and experiment with{" "}
-            <span className="font-semibold text-gray-200">
-              cross-chain features
-            </span>
-            .
-          </p>
-
-          <p className="text-gray-400 mb-8 leading-relaxed">
-            I’ve completed my BCA & MCA and now focus on building products that
-            are visually polished and technically strong.
-          </p>
-
-          {/* SKILL ICON ROW */}
-          <div className="flex flex-wrap gap-4 mb-10">
-            <FaReact size={36} className="text-[#61DAFB]" />
-            <SiNextdotjs size={36} className="text-white" />
-            <FaNodeJs size={36} className="text-green-400" />
-            <SiMongodb size={36} className="text-green-500" />
-            <SiSolidity size={36} className="text-blue-400" />
-            <SiTailwindcss size={36} className="text-teal-300" />
+            {/* Exp Badge */}
+            <motion.div 
+               animate={{ y: [0, -10, 0] }}
+               transition={{ duration: 4, repeat: Infinity }}
+               className="absolute -top-6 -right-6 w-32 h-32 rounded-full bg-[#7F5AF0] flex flex-col items-center justify-center text-black border-4 border-[#050507] shadow-2xl z-20"
+            >
+               <span className="text-3xl font-black">1+</span>
+               <span className="text-[10px] font-bold uppercase tracking-tighter">Year Exp.</span>
+            </motion.div>
           </div>
 
-          {/* Social Links */}
-          <div className="flex gap-4 mt-6">
-            <a
-              href="https://github.com/rishabhrthr001"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 border border-[#333] rounded-lg hover:border-[#4FD1C5] hover:text-[#4FD1C5] transition"
+          {/* RIGHT: CONTENT */}
+          <div className="lg:col-span-7">
+            <motion.span 
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              className="text-[#4FD1C5] font-mono text-xs tracking-[0.3em] uppercase mb-6 block"
             >
-              <FaGithub size={22} />
-              <span>GitHub</span>
-            </a>
+              The Architect
+            </motion.span>
+            
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="text-5xl md:text-7xl font-bold text-white tracking-tight mb-8"
+            >
+              Building the <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4FD1C5] to-[#7F5AF0]">Unseen.</span>
+            </motion.h2>
 
-            <a
-              href="https://www.linkedin.com/in/rishabh-rathore-115478228"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 border border-[#333] rounded-lg hover:border-[#4FD1C5] hover:text-[#4FD1C5] transition"
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="space-y-6 text-white/60 text-lg leading-relaxed mb-10"
             >
-              <FaLinkedin size={22} />
-              <span>LinkedIn</span>
-            </a>
+              <p>
+                I am a Software Architect and Full-Stack Developer driven by the pursuit of 
+                technical excellence. My philosophy is simple: write code that is as 
+                robust as it is elegant. I don't just build websites; I engineer 
+                digital experiences that scale.
+              </p>
+              <p>
+                With a background in MCA and a deep passion for Web3, I’ve dedicated my 
+                career to bridging the gap between archaic systems and the decentralized 
+                future. I specialize in the MERN stack, Next.js, and high-security 
+                smart contracts.
+              </p>
+            </motion.div>
+
+            {/* Highlights Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
+              {highlights.map((item, i) => (
+                <div key={i} className="flex gap-4 p-4 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-white/10 transition-colors">
+                   <FiCheckCircle className="text-[#4FD1C5] mt-1 shrink-0" />
+                   <div>
+                     <p className="text-white font-bold text-sm mb-1">{item.title}</p>
+                     <p className="text-white/40 text-xs">{item.desc}</p>
+                   </div>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA & Socials */}
+            <div className="flex flex-wrap items-center gap-6">
+               <a 
+                 href="https://github.com/rishabhrthr001" 
+                 target="_blank"
+                 className="flex items-center gap-2 text-white/60 hover:text-white transition-colors group"
+               >
+                 <FaGithub size={24} />
+                 <span className="text-sm font-bold uppercase tracking-widest">Connect on GitHub</span>
+                 <FiArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+               </a>
+               <a 
+                 href="https://www.linkedin.com/in/rishabh-rathore-115478228" 
+                 target="_blank"
+                 className="flex items-center gap-2 text-white/60 hover:text-white transition-colors group"
+               >
+                 <FaLinkedin size={24} />
+                 <span className="text-sm font-bold uppercase tracking-widest">Meet on LinkedIn</span>
+                 <FiArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+               </a>
+            </div>
           </div>
+
         </div>
-
-        {/* RIGHT: Animated Image */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9, y: 20 }}
-          whileInView={{ opacity: 1, scale: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="flex justify-center"
-        >
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 200 }}
-            className="w-64 h-64 rounded-full overflow-hidden border-2 border-[#4FD1C5] shadow-lg shadow-black/40"
-          >
-            <Image
-              src="/golu.jpg"
-              alt="Rishabh Rathore"
-              width={256}
-              height={256}
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   );

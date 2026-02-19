@@ -1,200 +1,160 @@
 "use client";
 
 import Image from "next/image";
-import { FaExternalLinkAlt } from "react-icons/fa";
-import { useRef } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
+import { FiArrowUpRight, FiCode, FiLayers } from "react-icons/fi";
 
 export default function Portfolio() {
   const projects = [
     {
-      title: "Code Together",
-      desc: "A collaborative DSA practice platform where users solve problems, create private lobbies, and code together in real-time.",
-      impact: "Built for real-time collaboration with zero reloads.",
-      img: "/project1.png",
-      video: "/project1.mp4",
-      link: "https://code-together-rzis.vercel.app",
-      reverse: false,
-      tech: ["WebSockets", "Node.js", "React", "Express", "MongoDB"],
-      delay: 0.1,
+      title: "PingMyDB",
+      desc: "A database monitoring SaaS that tracks uptime and availability through automated health checks and real-time alerts. It provides a clean dashboard to visualize uptime percentage, downtime duration, and incident history.",
+      impact: "Monitoring live databases at ~99% service uptime.",
+      img: "/pingmydb.png",
+      link: "https://pingmydb-frontend-xozimayiwa-uc.a.run.app/",
+      tech: ["Node.js", "React", "PostgreSQL", "Redis", "TailwindCSS"],
+      color: "#4FD1C5"
     },
     {
-      title: "Shri Hardev Packers",
-      desc: "A modern SEO-friendly product showcase website for a real-world business.",
-      impact: "Delivered to a real client for branding and catalog.",
-      img: "/project2.png",
-      video: "/project2.mp4",
-      link: "https://shrihardevpackers.in",
-      reverse: true,
+      title: "Mangalam Florist",
+      desc: "A production-ready business website built for a local florist, focused on lead generation, product discovery, and mobile-first usability. Features optimized performance and integrated online payments.",
+      impact: "Fast load times & integrated online payments.",
+      img: "/mangalam.png",
+      link: "https://mangalamflorist.com",
+      tech: ["Next.js", "React", "TailwindCSS", "Framer Motion", "SEO"],
+      color: "#7F5AF0"
+    },
+    {
+      title: "Codekea",
+      desc: "An independent startup focused on building high-quality web applications. Designing and developing end-to-end full-stack solutions with a strong emphasis on performance and clean architecture.",
+      impact: "End-to-end product delivery for startups.",
+      img: "/codekea.png",
+      link: "https://codekea.com",
+      tech: ["Next.js", "Full-Stack", "Architecture", "Consulting"],
+      color: "#FFD166"
+    },
+    {
+      title: "Inknest",
+      desc: "A premium digital agency platform designed for high-end brand storytelling and service discovery. Features an ultra-responsive liquid layout, deep SEO optimization, and a production-ready architecture tailored for creative businesses looking to scale their digital presence.",
+      impact: "Delivered a high-conversion digital flagship.",
+      img: "/inknest.png",
+      link: "https://inknest.in",
       tech: ["Next.js", "React.js", "TailwindCSS", "Framer Motion"],
-      delay: 0.2,
-    },
-    {
-      title: "BlockPay",
-      desc: "A Web3 rewards platform with ERC-20 tokens, bonuses, and wallet integration.",
-      impact: "Smart contracts fully deployed & connected.",
-      img: "/project3.png",
-      video: "/project3.mp4",
-      link: "https://block-pay-9v2f.vercel.app/",
-      reverse: false,
-      tech: ["Solidity", "React.js", "TailwindCSS", "Ethers.js", "Node.js"],
-      delay: 0.3,
+      color: "#7F5AF0"
     },
   ];
 
   return (
-    <section
-      id="portfolio"
-      className="relative min-h-screen bg-[#0f0f11] text-white py-24 px-6 overflow-hidden"
-    >
-      {/* Center teal glow */}
-      <div
-        className="absolute top-40 left-1/2 -translate-x-1/2 w-[800px] h-[800px]
-        bg-[#4fd1c525] blur-[180px] rounded-full pointer-events-none"
-      />
+    <section id="portfolio" className="relative py-32 px-6 bg-transparent">
+      {/* Background Decor & Seamless Blending */}
+      <div className="absolute top-0 left-0 w-full h-[300px] bg-gradient-to-b from-[#4fd1c505] to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-full h-[300px] bg-gradient-to-t from-[#7f5af003] to-transparent pointer-events-none" />
 
-      <div className="relative z-10 max-w-6xl mx-auto">
-        <h2 className="text-5xl font-extrabold text-center mb-16">
-          My Projects
-        </h2>
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+          <div className="max-w-2xl">
+            <motion.span 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="text-[#4FD1C5] font-mono text-xs tracking-[0.3em] uppercase mb-4 block"
+            >
+              Selected Works
+            </motion.span>
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="text-5xl md:text-7xl font-bold text-white tracking-tight"
+            >
+              Building <span className="text-white/20 italic font-serif">Impact</span> through code.
+            </motion.h2>
+          </div>
+        </div>
 
-        <div className="flex flex-col gap-24">
-          {projects.map((p, i) => {
-            const videoRef = useRef(null);
-
-            // play only on hover
-            const handleMouseEnter = () => {
-              const v = videoRef.current;
-              if (!v) return;
-              v.currentTime = 0;
-              v.play().catch(() => {});
-            };
-
-            const handleMouseLeave = () => {
-              const v = videoRef.current;
-              if (!v) return;
-              v.pause();
-              v.currentTime = 0;
-            };
-
-            const openFullscreen = () => {
-              const v = videoRef.current;
-              if (!v) return;
-              if (v.requestFullscreen) v.requestFullscreen();
-              else if (v.webkitEnterFullscreen) v.webkitEnterFullscreen();
-            };
-
-            return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: p.delay }}
-                className={`flex flex-col md:flex-row ${
-                  p.reverse ? "md:flex-row-reverse" : ""
-                } items-center gap-10`}
-              >
-                {/* THUMBNAIL + VIDEO */}
-                <motion.div
-                  className="relative group w-full md:w-1/2 overflow-hidden 
-                             rounded-2xl border border-[#1f1f22] shadow-lg shadow-black/40"
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  {/* Thumbnail (visible by default) */}
-                  <Image
-                    src={p.img}
-                    alt={p.title}
-                    width={600}
-                    height={400}
-                    className="object-cover w-full h-full transition-opacity duration-500
-                               group-hover:opacity-0"
-                  />
-
-                  {/* Video (hidden until hover) */}
-                  <video
-                    ref={videoRef}
-                    src={p.video}
-                    muted
-                    loop
-                    playsInline
-                    className="absolute inset-0 w-full h-full object-cover 
-                               opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                    onClick={openFullscreen}
-                  />
-
-                  {/* Controls (only appear on hover) */}
-                  <div
-                    className="absolute bottom-0 left-0 w-full bg-black/60 backdrop-blur-sm 
-                               py-2 flex justify-center gap-4 opacity-0 
-                               group-hover:opacity-100 transition-opacity text-white"
-                  >
-                    <button
-                      onClick={() => {
-                        if (videoRef.current) videoRef.current.currentTime -= 5;
-                      }}
-                      className="px-3 py-1 bg-white/10 hover:bg-white/20 rounded text-sm"
-                    >
-                      ⏪ 5s
-                    </button>
-
-                    <button
-                      onClick={openFullscreen}
-                      className="px-3 py-1 bg-white/10 hover:bg-white/20 rounded text-sm"
-                    >
-                      ⛶ Fullscreen
-                    </button>
-
-                    <button
-                      onClick={() => {
-                        if (videoRef.current) videoRef.current.currentTime += 5;
-                      }}
-                      className="px-3 py-1 bg-white/10 hover:bg-white/20 rounded text-sm"
-                    >
-                      5s ⏩
-                    </button>
-                  </div>
-                </motion.div>
-
-                {/* TEXT */}
-                <div className="w-full md:w-1/2 text-center md:text-left">
-                  <h3 className="text-3xl font-semibold mb-4">{p.title}</h3>
-
-                  <p className="text-gray-400 mb-3 leading-relaxed">{p.desc}</p>
-
-                  <p className="text-teal-300 mb-6 italic text-sm">
-                    {p.impact}
-                  </p>
-
-                  <div className="flex flex-wrap justify-center md:justify-start gap-2 mb-6">
-                    {p.tech.map((t, idx) => (
-                      <span
-                        key={idx}
-                        className="px-3 py-1 text-sm border border-[#333] rounded-full text-gray-300"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-
-                  <a
-                    href={p.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2 
-                               border border-[#444] rounded-lg text-gray-200
-                               hover:bg-[#1a1a1d] hover:border-[#4FD1C5] transition"
-                  >
-                    <FaExternalLinkAlt />
-                    Visit Project
-                  </a>
-                </div>
-              </motion.div>
-            );
-          })}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          {projects.map((project, i) => (
+            <ProjectCard key={i} project={project} index={i} />
+          ))}
         </div>
       </div>
     </section>
+  );
+}
+
+function ProjectCard({ project, index }) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="group relative bg-[#121214] border border-white/5 rounded-[3rem] overflow-hidden flex flex-col"
+    >
+      {/* IMAGE CONTAINER */}
+      <div className="relative aspect-[16/10] overflow-hidden">
+        <Image
+          src={project.img}
+          alt={project.title}
+          fill
+          className={`object-cover transition-transform duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}
+        />
+        
+        {/* Hover Highlight Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050507] via-transparent to-transparent opacity-60" />
+        
+        {/* Tech Badges on Image */}
+        <div className="absolute top-6 left-6 flex flex-wrap gap-2">
+           {project.tech.slice(0, 3).map((t, idx) => (
+             <span key={idx} className="px-3 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-[10px] font-mono text-white/70 uppercase tracking-wider">
+               {t}
+             </span>
+           ))}
+        </div>
+      </div>
+
+      {/* CONTENT AREA */}
+      <div className="p-10 flex flex-col flex-grow">
+        <div className="flex items-start justify-between mb-6">
+          <div>
+            <h3 className="text-3xl font-bold text-white mb-2 group-hover:text-[#4FD1C5] transition-colors">
+              {project.title}
+            </h3>
+            <p className="text-white/40 text-sm italic font-medium">
+              {project.impact}
+            </p>
+          </div>
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-[#4FD1C5] hover:text-black hover:border-[#4FD1C5] transition-all"
+          >
+            <FiArrowUpRight size={20} />
+          </a>
+        </div>
+
+        <p className="text-white/60 leading-relaxed mb-8 flex-grow">
+          {project.desc}
+        </p>
+
+        <div className="pt-6 border-t border-white/5 flex items-center gap-4">
+           <div className="flex -space-x-2">
+              <div className="w-8 h-8 rounded-full bg-[#4FD1C5]/20 border border-white/10 flex items-center justify-center text-[#4FD1C5]">
+                <FiCode size={14} />
+              </div>
+              <div className="w-8 h-8 rounded-full bg-[#7F5AF0]/20 border border-white/10 flex items-center justify-center text-[#7F5AF0]">
+                <FiLayers size={14} />
+              </div>
+           </div>
+           <span className="text-[10px] font-mono text-white/30 uppercase tracking-widest">
+             Engineering Excellence
+           </span>
+        </div>
+      </div>
+    </motion.div>
   );
 }
